@@ -1,0 +1,20 @@
+users_controller.rb
+
+@user = User.find(params[:id])
+
+
+users_show.html
+
+<h3 class="profile-name"><%= @user.name %></h3>
+
+
+application_html
+
+<li class="">
+        <%= link_to '投稿フォーム', new_post_image_path %>
+      </li>
+
+user.rb
+
+validates :profile, length: {maximum:200}
+  validates :profile, length: {minimum:2}

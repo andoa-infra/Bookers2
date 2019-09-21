@@ -1,0 +1,21 @@
+<div class="container">
+	<div class="row">
+		<div class="col-lg-4">
+			<h1>User info</h1>
+				<div class="profile-container">
+    				<%= attachment_image_tag @user, :profile_image, :fill, 60, 60, format: 'jpeg', class: "img-circle pull-left profile-img", fallback: "no_image.jpg" %>    <% if @user.id == current_user.id %>
+    				<h3 class="profile-name"><%= @user.name %></h3>
+	        		<p><%= link_to "プロフィール編集", edit_user_path(@user), class: "pull-right" %></p>
+    				<% end %>
+
+    				<h1>New book</h1>
+<!-- form_for部分 -->
+
+			</div>
+		</div>
+
+		<div class="col-lg-8">
+		
+		</div>
+	</div>
+</div>
