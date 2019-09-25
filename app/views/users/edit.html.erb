@@ -7,7 +7,7 @@
               <div class="container">
                   <div class="row">
                       <div class="col-md-4 col-md-offset-4">
-                          <div class="form-user style-1 rounded has-shadow-1"> 
+                          <div class="form-user style-1 rounded has-shadow-1">
                             <div class="form-header text-center">
                                 <h2 class="form-header-title">プロフィール編集</h2>
                             </div>
@@ -26,6 +26,13 @@
                                     <label class="control-label sr-only" for="user_profile_image">ProfileImage</label>
                                     <%= f.attachment_field :profile_image, placeholder: "プロフィール画像", class: "user-edit-form" %>
                                 </div>
+
+                                <div class="form-group has-icon">
+                                  <label class="control-label sr-only" for="inputEmail">Introduction</label>
+                                    <%= f.text_area :introduction, autofocus: true, class:"form-control", id:"inputEmail", placeholder:"Introduction"%>
+                                  <span class="fa fa-user form-control-icon" aria-hidden="true"></span>
+                                </div>
+
                                 <%= f.submit "変更を保存", class:"btn btn-lg btn-block btn-base-1 mt-20" %>
                                 <% end %>
                               <!-- ここにform_forを追加します -->

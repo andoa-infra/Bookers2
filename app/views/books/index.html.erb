@@ -1,47 +1,44 @@
+<header id="header" class="">
+	<div class= "container">
+
+	</div>
+
+</header><!-- /header -->
 <div class="container">
 	<div class="row">
 		<div class="col-lg-4">
 			<h1>User info</h1>
 				<div class="profile-container">
-					<%= attachment_image_tag @user, :profile_image, :fill, 60, 60, format: 'jpeg', class: "img-circle pull-left profile-img", fallback: "no_image.jpg" %>    <% if @user.id == current_user.id %>
-    				<h3 class="profile-name"><%= @user.name %></h3>
-	        		<p><%= link_to "プロフィール編集", edit_user_path(@user), class: "pull-right" %></p>
-    				<% end %>
+					<%= attachment_image_tag current_user, :profile_image, :fill, 60, 60, format:'jpeg', class:"img-circle pull-left profile-img", fallback: "no_image.jpg" %>
+    				<h3 class="profile-name">name <%= current_user.name %></h3>
+    				<h3 class="introduction">introduction <%= current_user.introduction %></h3>
 
-    				<h1>New book</h1>
+	        	</div>
+
+	        	<p><%= link_to "プロフィール編集", edit_user_path(current_user), class: "pull-right" %></p>
+
+	        <h1>New book</h1>
 <!-- form_for部分 -->
-						<%= form_for(@book, url: '/books') do |f| %>
-						<% if @book.errors.any? %>
-    						<div id="error_explanation">
-      						<h2><%= pluralize(@book.errors.count, "error") %> prohibited this message from being saved:</h2>
+			<%= form_for(@book, url: '/books') do |f| %>
 
-      						<ul>
-        						<% @book.errors.full_messages.each do |msg| %>
-         						 <li><%= msg %></li>
-        						<% end %>
-      						</ul>
-    						</div>
-    						<% end %>
+				<h4>Title</h4>
+    			<%= f.text_field :title %>
 
-    							<h4>Title</h4>
-    								<%= f.text_field :title %>
+    			<h4>Body</h4>
+    			<%= f.text_area :body %>
 
-					    		<h4>Opinion</h4>
-    								<%= f.text_area :opinion %>
+    			<%= f.submit 'Create Book' %>
 
-					    			<%= f.submit 'Create Book' %>
+			<% end %>
 
-						<% end %>
-				</div>
 		</div>
 
 		<div class="col-lg-8">
 			<h1>Books</h1>
 
-			<header>
-
 				 <table>
     				<tr>
+    					<th colspan="" rowspan="" headers="" scope=""></th>
     					<th colspan="" rowspan="" headers="" scope="">Title</th>
     					<th colspan="" rowspan="" headers="" scope="">Body</th>
     				</tr>
@@ -49,19 +46,14 @@
     				<% @books.each do |book| %>
 
     				<tr>
-        				<td colspan="" rowspan="" headers="" scope=""><span><%= book.title %></span></td>
+    					<td colspan="" rowspan="" headers="" scope=""><span><%= %></span></td>
+        				<td colspan="" rowspan="" headers="" scope=""><span><%=link_to book.title, book_path(book.id) %></span></td>
         				<td colspan="" rowspan="" headers="" scope=""><span><%= book.body %></span></td>
-        				<td colspan="" rowspan="" headers="" scope=""><span><%=link_to "Show", book_path(book.id) %></span></td>
-    					<td colspan="" rowspan="" headers="" scope=""></td>
-    					<td colspan="" rowspan="" headers=""><span><%=link_to "Edit", edit_book_path(book) %></span></td>
-    					<td colspan="" rowspan="" headers=""><span><%= link_to "Destroy", destroy_book_path(book), method: :delete, "data-confirm" => "本当に削除しますか?" %></span></td>
     				</tr>
 
  					<% end %>
 
  				</table>
-
-			</header>
 		</div>
 	</div>
 </div>
