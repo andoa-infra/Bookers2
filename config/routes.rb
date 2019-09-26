@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   root to: 'root#top'
 
 
-  resources :users, only: [:show, :edit, :update]
+  resources :users, only: [:index, :show, :edit, :update]
   resources :books
 end
 
