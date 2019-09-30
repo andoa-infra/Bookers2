@@ -1,0 +1,26 @@
+<%= render 'books/list', book: @book %>
+
+<div class="col-lg-8">
+			<h1>Books</h1>
+
+				 <table class= "table table-striped">
+    				<tr>
+    					<th colspan="" rowspan="" headers="" scope=""></th>
+    					<th colspan="" rowspan="" headers="" scope="">Title</th>
+    					<th colspan="" rowspan="" headers="" scope="">Body</th>
+    				</tr>
+
+
+    				<% @books.each do |book| %>
+
+    				<tr>
+    					<td colspan="" rowspan="" https://web-camp.online/lesson/curriculums/191/contents/991headers="" scope=""><span><%= attachment_image_tag @user, :profile_image, :fill, 10, 10, format:'jpeg', class:"img-circle pull-left profile-img", fallback: "no_image.jpg" %></span></td>
+        				<td colspan="" rowspan="" headers="" scope=""><span><%=link_to book.title, book_path(book.id) %></span></td>
+        				<td colspan="" rowspan="" headers="" scope=""><span><%= book.body %></span></td>
+    				</tr>
+
+ 					<% end %>
+
+ 				</table>
+	</div>
+	<%= paginate @books, class: "paginate" %>

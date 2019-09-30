@@ -1,7 +1,7 @@
 class BooksController < ApplicationController
   before_action :authenticate_user!
   def index
-  	@books = Book.all
+  	@books = Book.page(params[:page]).reverse_order
     @book=Book.new
   end
 

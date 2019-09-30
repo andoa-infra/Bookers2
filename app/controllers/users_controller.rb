@@ -6,10 +6,16 @@ class UsersController < ApplicationController
     @book = Book.new
   end
 
+  def home
+    @book = Book.new
+    @user = User.find(params[:id])
+    @books = @user.book.page(params[:page]).reverse_order
+  end
+
   def show
   	@user = User.find(params[:id])
     @books = Book.all
-
+    @book = Book.new
   end
   def edit
   	@user = User.find(params[:id])

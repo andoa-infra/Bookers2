@@ -1,42 +1,10 @@
 
 <div class="container">
 	<div class="row">
-		<div class="col-lg-4">
-			<h1>User info</h1>
-				<div class="profile-container">
-    				<%= attachment_image_tag @user, :profile_image, :fill, 60, 60, format: 'jpeg', class: "img-circle pull-left profile-img", fallback: "no_image.jpg" %>    <% if @user.id == current_user.id %>
-    				      <h3 class="profile-name"><%= @user.name %></h3>
-    				      <h3 class="introduction">introduction <%= @user.introduction %></h3>
-	        		      <p><%= link_to "プロフィール編集", edit_user_path(@user), class: "pull-right" %></p>
-    				    <% end %>
-
-    				<h1>New book</h1>
-<!-- form_for部分 -->
-
-			</div>
-		</div>
+		<%= render 'books/list', book: @book %>
 
 		<div class="col-lg-8">
-		<h1>Books</h1>
-
-				 <table>
-    				<tr>
-    					<th colspan="" rowspan="" headers="" scope=""></th>
-    					<th colspan="" rowspan="" headers="" scope="">Title</th>
-    					<th colspan="" rowspan="" headers="" scope="">Body</th>
-    				</tr>
-
-    				<% @books.each do |book| %>
-
-    				<tr>
-    					<td colspan="" rowspan="" headers="" scope=""><span><%= %></span></td>
-        				<td colspan="" rowspan="" headers="" scope=""><span><%=link_to book.title, book_path(book.id) %></span></td>
-        				<td colspan="" rowspan="" headers="" scope=""><span><%= book.body %></span></td>
-    				</tr>
-
- 					<% end %>
-
- 				</table>
+		sssdd
 		</div>
 	</div>
 </div>
