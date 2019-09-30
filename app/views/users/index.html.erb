@@ -3,9 +3,8 @@
         <div class="col-lg-4">
             <h1>User info</h1>
                 <div class="profile-container">
-                    <%= attachment_image_tag current_user, :profile_image, :fill, 60, 60, format:'jpeg', class:"img-circle pull-left profile-img", fallback: "no_image.jpg" %>
-                    <h3 class="profile-name">name <%= current_user.name %></h3>
-                    <h3 class="introduction">introduction <%= current_user.introduction %></h3>
+                    <%= attachment_image_tag current_user, :profile_image, :fill, 60, 60, format:'jpeg', class:"img-circle pull-left profile-img block", fallback: "no_image.jpg" %>
+                    
 
                 </div>
 

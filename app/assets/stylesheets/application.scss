@@ -15,3 +15,41 @@
  */
   @import "bootstrap-sprockets";
   @import "bootstrap";
+
+  * {
+   margin :0;
+   padding: 0;
+   box-sizing :border-box;
+   
+  }
+
+  header{
+  	width :100%;
+  	background-color :black;
+
+  }
+
+  .nav{
+  	color :white;
+    
+  }
+
+  a{
+    text-decoration :none;
+    color:gray;
+  }
+
+  #slidemenu{
+    height: 100%;
+    margin: 0 20%;
+    display:block;
+  }
+
+  .block{
+    display: block;
+  }
+
+  .field{
+    display: block;
+    width: 100%;
+  }
