@@ -5,7 +5,7 @@
         <div class="col-lg-8">
             <h1>Books</h1>
 
-                 <table>
+                 <table class= "table table-striped" >
                     <tr>
                         <th colspan="" rowspan="" headers="" scope=""></th>
                         <th colspan="" rowspan="" headers="" scope="">Image</th>
@@ -15,7 +15,7 @@
                     <% @users.each do |user| %>
 
                     <tr>
-                        <td colspan="" rowspan="" headers="" scope=""><span><%= %></span></td>
+                        <td colspan="" rowspan="" headers="" scope=""><span><%= attachment_image_tag @user, :profile_image, :fill, 40, 40, format:'jpeg', class:"img-circle pull-left profile-img", fallback: "no_image.jpg", size:'40x40' %></span></td>
                         <td colspan="" rowspan="" headers="" scope=""><span><%=link_to user.name, user_path(user.id) %></span></td>
                         <td colspan="" rowspan="" headers="" scope=""><span><%= user.name %></span></td>
                     </tr>

@@ -1,16 +1,25 @@
+
 <% if flash[:notice] %>
       <div class="flash">
         <%= flash[:notice] %>
       </div>
-    <% end %>
+<% end %>
 
-<%= render 'books/list', book: @book %>
+  <%= render 'books/list', book: @book %>
 
 
-<p>  <strong>Title:</strong>
-<%= @book.title %></p>
-<p>   <strong>Body:</strong>
-<%= @book.body %></p>
+<div class="col-lg-8">
+	<h1>Book detail</h1>
+	<table class="table">
+		<tbody>
+			<tr>
+				<td><span><%= attachment_image_tag @user, :profile_image, :fill, 40, 40, format:'jpeg', class:"img-circle pull-left profile-img", fallback: "no_image.jpg", size:'40x40' %></span></td>
+				<td><p><%=@book.title%></p></td>
+				<td><%= @book.body %></td>
+				
+			</tr>
+		</tbody>
+	</table>
 
-<%= link_to "Edit", edit_book_path(@book.id) %>
-<%=link_to 'Back', "/books" %>
+</div>
+
