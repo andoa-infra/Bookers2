@@ -1,8 +1,12 @@
 
-<%= render 'books/list', book: @book %>
+<%= render 'books/list2', book: @book, user: @user %>
+
+<% if flash[:notice] %>
+	<%= flash[:notice] %>
+<% end %>
 
 <div class="col-lg-8">
-			<h1>Users</h1>
+			<h1>Books</h1>
 
 				 <table class= "table table-striped">
     				<tr>

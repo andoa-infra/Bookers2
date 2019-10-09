@@ -1,11 +1,9 @@
 
-<% if flash[:notice] %>
-      <div class="flash">
-        <%= flash[:notice] %>
-      </div>
-<% end %>
+  <%= render 'books/list2', book: @book, user:@user %>
 
-  <%= render 'books/list', book: @book %>
+<% if flash[:notice] %>
+        <%= flash[:notice] %>
+<% end %>
 
 
 <div class="col-lg-8">
@@ -13,10 +11,13 @@
 	<table class="table">
 		<tbody>
 			<tr>
-				<td><span><%= attachment_image_tag @user, :profile_image, :fill, 40, 40, format:'jpeg', class:"img-circle pull-left profile-img", fallback: "no_image.jpg", size:'40x40' %></span></td>
-				<td><p><%=@book.title%></p></td>
-				<td><%= @book.body %></td>
-				
+				<th><%= attachment_image_tag @user, :profile_image, :fill, 10, 10, format:'jpeg', class:"img-circle pull-left profile-img", fallback: "no_image.jpg", size:'40x40' %><br><%=link_to @user.name, user_path(@user) %></th>
+				<th><p><%=@bookj.title%></p></th>
+				<td><%= @bookj.body %></td>
+				<% if @bookj.user == current_user %>
+				    <th><%= link_to "Edit", edit_book_path(@bookj) %></th>
+			        <th><%= link_to "Destroy", book_path(@bookj), method: :delete, "data-confirm" => "本当に削除しますか?" %></th>
+			    <% end %>
 			</tr>
 		</tbody>
 	</table>
